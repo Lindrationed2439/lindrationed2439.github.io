@@ -1,42 +1,8 @@
 // =========================
-// MASTER FAMILY TREE DATA
+// FAMILY BRANCH DEFINITIONS
 // =========================
 
-const treeData = {
-  name: "Rachel & Alyssa Westberg",
-  children: [
-
-    // =========================
-    // BRENT WESTBERG SIDE
-    // =========================
-    {
-      name: "Brent Westberg (1968)",
-      children: [
-        WESTBERG_BRANCH,
-        LAFEVER_BRANCH,
-        LOSIE_BRANCH,
-        BEARANCE_BRANCH
-      ]
-    },
-
-    // =========================
-    // CHERI LAKIN SIDE
-    // =========================
-    {
-      name: "Cheri Ann Lakin (1967)",
-      children: [
-        LAKIN_BRANCH,
-        SAWYER_BRANCH
-      ]
-    }
-  ]
-};
-
-
-// =========================
 // WESTBERG BRANCH
-// =========================
-
 const WESTBERG_BRANCH = {
   name: "Ronald 'Ron' Westberg (1935) – Westberg",
   children: [
@@ -50,11 +16,7 @@ const WESTBERG_BRANCH = {
   ]
 };
 
-
-// =========================
 // LAFEVER BRANCH
-// =========================
-
 const LAFEVER_BRANCH = {
   name: "Myrtle J. LaFever (1914–2002) – LaFever",
   children: [
@@ -75,11 +37,7 @@ const LAFEVER_BRANCH = {
   ]
 };
 
-
-// =========================
-// LOSIE / LOSEE / KOeCK BRANCH
-// =========================
-
+// LOSIE BRANCH
 const LOSIE_BRANCH = {
   name: "Sandra Jean Losie (1940) – Losie",
   children: [
@@ -111,15 +69,15 @@ const LOSIE_BRANCH = {
                                       name: "Cornelius Losee (1644–1678) – Losee",
                                       children: [
                                         {
-                                          name: "Laurens Corneliszen Koeck (1640–1702, Denmark → NY) – Koeck",
+                                          name: "Laurens Corneliszen Koeck (1640–1702) – Koeck",
                                           children: [
                                             {
-                                              name: "Margrietje Barents VanFlaesbeck (1658–1702, New Amsterdam) – VanFlaesbeck"
+                                              name: "Margrietje Barents VanFlaesbeck (1658–1702) – VanFlaesbeck"
                                             }
                                           ]
                                         },
                                         {
-                                          name: "Ceertje Denton (1658–1678, Jamaica NY) – Denton"
+                                          name: "Ceertje Denton (1658–1678) – Denton"
                                         }
                                       ]
                                     }
@@ -142,11 +100,7 @@ const LOSIE_BRANCH = {
   ]
 };
 
-
-// =========================
-// BEARANCE / WOODMAN BRANCH
-// =========================
-
+// BEARANCE BRANCH
 const BEARANCE_BRANCH = {
   name: "Mildred Ilene Bearance (1919–2018) – Bearance",
   children: [
@@ -171,11 +125,7 @@ const BEARANCE_BRANCH = {
   ]
 };
 
-
-// =========================
 // LAKIN BRANCH
-// =========================
-
 const LAKIN_BRANCH = {
   name: "Roger W. Lakin (1935–2024) – Lakin",
   children: [
@@ -199,11 +149,7 @@ const LAKIN_BRANCH = {
   ]
 };
 
-
-// =========================
 // SAWYER BRANCH
-// =========================
-
 const SAWYER_BRANCH = {
   name: "Carol Ann Sawyer (1938–2016) – Sawyer",
   children: [
@@ -261,6 +207,31 @@ const SAWYER_BRANCH = {
   ]
 };
 
+// =========================
+// MASTER TREE DATA
+// =========================
+
+const treeData = {
+  name: "Rachel & Alyssa Westberg",
+  children: [
+    {
+      name: "Brent Westberg (1968)",
+      children: [
+        WESTBERG_BRANCH,
+        LAFEVER_BRANCH,
+        LOSIE_BRANCH,
+        BEARANCE_BRANCH
+      ]
+    },
+    {
+      name: "Cheri Ann Lakin (1967)",
+      children: [
+        LAKIN_BRANCH,
+        SAWYER_BRANCH
+      ]
+    }
+  ]
+};
 
 // =========================
 // TREE RENDERING LOGIC
