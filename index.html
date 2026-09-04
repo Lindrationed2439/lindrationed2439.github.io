@@ -8,47 +8,18 @@
 <body>
   <header>
     <h1>Westberg–Lakin Master Family Tree</h1>
-    <p>Interactive multi-branch ancestry viewer</p>
+    <p>Interactive, expandable ancestry viewer</p>
   </header>
 
   <main>
     <div id="toolbar">
-      <div class="toolbar-group">
-        <button id="treeView">Tree View</button>
-        <button id="listView">List View</button>
-        <button id="expandAll">Expand All</button>
-        <button id="collapseAll">Collapse All</button>
-      </div>
-
-      <div class="toolbar-group">
-        <label>
-          Branch:
-          <select id="branchSelect">
-            <option value="all">All branches</option>
-            <option value="Westberg">Westberg line</option>
-            <option value="Lakin">Lakin line</option>
-            <option value="Sawyer">Sawyer line</option>
-            <option value="Losie">Losie line</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="toolbar-group">
-        <input id="searchInput" type="text" placeholder="Search by name…">
-        <button id="searchButton">Search</button>
-        <button id="clearSearch">Clear</button>
-      </div>
+      <button id="treeView">Tree View</button>
+      <button id="listView">List View</button>
+      <button id="expandAll">Expand All</button>
+      <button id="collapseAll">Collapse All</button>
     </div>
 
-    <div id="content">
-      <div id="tree"></div>
-      <aside id="details">
-        <h2>Person details</h2>
-        <div id="detailsContent">
-          <p>Select a person to see details.</p>
-        </div>
-      </aside>
-    </div>
+    <div id="tree"></div>
   </main>
 
   <script src="tree.js"></script>
