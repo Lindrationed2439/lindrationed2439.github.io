@@ -1,4 +1,5 @@
-// --- MASTER FAMILY TREE DATA (major branches included) ---
+// --- FULL MASTER FAMILY TREE (ALL BRANCHES INCLUDED) ---
+
 const treeData = {
   name: "Rachel & Alyssa Westberg",
   children: [
@@ -58,11 +59,16 @@ const treeData = {
                 { name: "Stanley Bearance – Bearance" },
                 { name: "Hazel Isabella Woodman – Woodman" }
               ]
+            },
+            {
+              name: "Thomas E. Amor – Amor (Sandra’s later spouse)"
             }
           ]
         }
       ]
     },
+
+    // CHERI ANN LAKIN BRANCH
     {
       name: "Cheri Ann Lakin (1967) – Lakin line",
       children: [
@@ -95,6 +101,7 @@ const treeData = {
             }
           ]
         },
+
         {
           name: "Carol Ann Sawyer (1938–2016) – Sawyer",
           children: [
@@ -177,60 +184,4 @@ function createNode(person) {
       childrenDiv.appendChild(createNode(child));
     });
 
-    node.addEventListener("click", (e) => {
-      e.stopPropagation();
-      childrenDiv.classList.toggle("hidden");
-    });
-
-    node.appendChild(childrenDiv);
-  }
-
-  return node;
-}
-
-function renderTreeView() {
-  const treeContainer = document.getElementById("tree");
-  treeContainer.innerHTML = "";
-  treeContainer.appendChild(createNode(treeData));
-}
-
-// --- LIST VIEW RENDERING ---
-function flattenTree(person, list = []) {
-  list.push(person.name);
-  if (person.children) {
-    person.children.forEach(child => flattenTree(child, list));
-  }
-  return list;
-}
-
-function renderListView() {
-  const treeContainer = document.getElementById("tree");
-  treeContainer.innerHTML = "";
-
-  const list = flattenTree(treeData);
-  list.forEach(name => {
-    const item = document.createElement("div");
-    item.className = "list-item";
-    item.textContent = name;
-    treeContainer.appendChild(item);
-  });
-}
-
-// --- EXPAND / COLLAPSE ---
-function expandAll() {
-  document.querySelectorAll(".children").forEach(div => div.classList.remove("hidden"));
-}
-
-function collapseAll() {
-  document.querySelectorAll(".children").forEach(div => div.classList.add("hidden"));
-}
-
-// --- BUTTON HOOKS ---
-document.addEventListener("DOMContentLoaded", () => {
-  renderTreeView();
-
-  document.getElementById("treeView").onclick = renderTreeView;
-  document.getElementById("listView").onclick = renderListView;
-  document.getElementById("expandAll").onclick = expandAll;
-  document.getElementById("collapseAll").onclick = collapseAll;
-});
+    node.addEvent
