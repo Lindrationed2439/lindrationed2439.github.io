@@ -1,81 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Westberg–Lakin Family Tree App</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Westberg Family Tree</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="app-container">
-    <aside class="sidebar">
-      <h1>Family Explorer</h1>
 
-      <div class="sidebar-section">
-        <label for="searchInput">Search people</label>
-        <input id="searchInput" type="text" placeholder="Type a name...">
-        <div id="searchResults"></div>
-      </div>
+<h1>Westberg Family Tree</h1>
 
-      <div class="sidebar-section">
-        <label for="branchFilter">Filter by branch</label>
-        <select id="branchFilter">
-          <option value="">All branches</option>
-          <option value="Westberg">Westberg</option>
-          <option value="LaFever">LaFever</option>
-          <option value="Losie">Losie</option>
-          <option value="Bearance">Bearance</option>
-          <option value="Lakin">Lakin</option>
-          <option value="Sawyer">Sawyer</option>
-          <option value="Brown">Brown</option>
-          <option value="Chase">Chase</option>
-          <option value="Ingalls">Ingalls</option>
-          <option value="Delano">Delano</option>
-        </select>
-      </div>
+<!-- SEARCH -->
+<div class="toolbar">
+    <input id="searchInput" type="text" placeholder="Search names...">
+    <div id="searchResults"></div>
+</div>
 
-      <div class="sidebar-section">
-        <button id="expandAll">Expand all</button>
-        <button id="collapseAll">Collapse all</button>
-      </div>
-    </aside>
+<!-- MAIN TREE BUTTONS -->
+<div class="toolbar">
+    <button id="treeView">Main Tree</button>
+    <button id="expandAll">Expand All</button>
+    <button id="collapseAll">Collapse All</button>
+</div>
 
-    <main class="main-view">
-      <header class="main-header">
-        <h2>Rachel & Alyssa Westberg – Ancestry Tree</h2>
-        <p>Click any name to see full details.</p>
-      </header>
+<!-- ANCESTRY DISPLAYS -->
+<h2>Ancestry Views</h2>
 
-      <div id="tree" class="tree-container"></div>
-    </main>
-  </div>
+<div class="toolbar">
+    <button id="ancestorList">Ancestor List</button>
+    <button id="generationView">Generational View</button>
+    <button id="surnameView">Surname View</button>
+    <button id="descendantView">Descendant View</button>
+</div>
 
-  <div id="personModal" class="modal hidden">
+<div class="toolbar">
+    <button id="splitView">Paternal / Maternal Split</button>
+    <button id="fanChartView">Fan Chart</button>
+    <button id="timelineView">Timeline View</button>
+    <button id="printableReport">Printable Report</button>
+</div>
+
+<!-- BRANCH FILTERS -->
+<h2>Branch Filters</h2>
+
+<div class="toolbar">
+    <select id="branchFilter">
+        <option value="">Filter Tree by Branch</option>
+        <option value="Westberg">Westberg</option>
+        <option value="Hornstrom">Hornstrom</option>
+        <option value="LaFever">LaFever</option>
+        <option value="Raymond">Raymond</option>
+        <option value="Losie">Losie</option>
+        <option value="Losee">Losee</option>
+        <option value="Koeck">Koeck</option>
+        <option value="Denton">Denton</option>
+        <option value="VanFlaesbeck">VanFlaesbeck</option>
+        <option value="Bearance">Bearance</option>
+        <option value="Woodman">Woodman</option>
+        <option value="Lamberton">Lamberton</option>
+        <option value="Lakin">Lakin</option>
+        <option value="Meade">Meade</option>
+        <option value="Sawyer">Sawyer</option>
+        <option value="Brown">Brown</option>
+        <option value="Chase">Chase</option>
+        <option value="Ingalls">Ingalls</option>
+        <option value="Delano">Delano</option>
+        <option value="O'Connell">O'Connell</option>
+    </select>
+
+    <select id="branchOnlyView">
+        <option value="">Branch‑Only List View</option>
+        <option value="Westberg">Westberg</option>
+        <option value="Hornstrom">Hornstrom</option>
+        <option value="LaFever">LaFever</option>
+        <option value="Raymond">Raymond</option>
+        <option value="Losie">Losie</option>
+        <option value="Losee">Losee</option>
+        <option value="Koeck">Koeck</option>
+        <option value="Denton">Denton</option>
+        <option value="VanFlaesbeck">VanFlaesbeck</option>
+        <option value="Bearance">Bearance</option>
+        <option value="Woodman">Woodman</option>
+        <option value="Lamberton">Lamberton</option>
+        <option value="Lakin">Lakin</option>
+        <option value="Meade">Meade</option>
+        <option value="Sawyer">Sawyer</option>
+        <option value="Brown">Brown</option>
+        <option value="Chase">Chase</option>
+        <option value="Ingalls">Ingalls</option>
+        <option value="Delano">Delano</option>
+        <option value="O'Connell">O'Connell</option>
+    </select>
+</div>
+
+<!-- TREE DISPLAY -->
+<div id="tree"></div>
+
+<!-- PERSON MODAL -->
+<div id="personModal" class="hidden">
     <div class="modal-content">
-      <button id="closeModal" class="modal-close">×</button>
-      <h2 id="modalName"></h2>
-      <p id="modalBranch"></p>
-
-      <div class="modal-section">
-        <h3>Life</h3>
+        <h2 id="modalName"></h2>
+        <p id="modalBranch"></p>
         <p id="modalBirth"></p>
         <p id="modalDeath"></p>
-      </div>
-
-      <div class="modal-section">
-        <h3>Family</h3>
         <p id="modalParents"></p>
         <p id="modalSpouses"></p>
         <p id="modalChildren"></p>
-      </div>
-
-      <div class="modal-section">
-        <h3>Notes</h3>
         <p id="modalNotes"></p>
-      </div>
+        <button id="closeModal">Close</button>
     </div>
-  </div>
+</div>
 
-  <script src="tree.js"></script>
+<script src="tree.js"></script>
+
 </body>
 </html>
