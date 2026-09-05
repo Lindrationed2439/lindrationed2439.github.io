@@ -2,26 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Westberg–Lakin Family Tree</title>
+  <title>Westberg–Lakin Family Tree App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>Westberg–Lakin Master Family Tree</h1>
-    <p>Interactive, expandable ancestry viewer</p>
-  </header>
+  <div class="app-container">
+    <aside class="sidebar">
+      <h1>Family Explorer</h1>
 
-  <main>
-    <div id="toolbar">
-      <button id="treeView">Tree View</button>
-      <button id="listView">List View</button>
-      <button id="expandAll">Expand All</button>
-      <button id="collapseAll">Collapse All</button>
+      <div class="sidebar-section">
+        <label for="searchInput">Search people</label>
+        <input id="searchInput" type="text" placeholder="Type a name...">
+        <div id="searchResults"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <label for="branchFilter">Filter by branch</label>
+        <select id="branchFilter">
+          <option value="">All branches</option>
+          <option value="Westberg">Westberg</option>
+          <option value="LaFever">LaFever</option>
+          <option value="Losie">Losie</option>
+          <option value="Bearance">Bearance</option>
+          <option value="Lakin">Lakin</option>
+          <option value="Sawyer">Sawyer</option>
+          <option value="Brown">Brown</option>
+          <option value="Chase">Chase</option>
+          <option value="Ingalls">Ingalls</option>
+          <option value="Delano">Delano</option>
+        </select>
+      </div>
+
+      <div class="sidebar-section">
+        <button id="expandAll">Expand all</button>
+        <button id="collapseAll">Collapse all</button>
+      </div>
+    </aside>
+
+    <main class="main-view">
+      <header class="main-header">
+        <h2>Rachel & Alyssa Westberg – Ancestry Tree</h2>
+        <p>Click any name to see full details.</p>
+      </header>
+
+      <div id="tree" class="tree-container"></div>
+    </main>
+  </div>
+
+  <div id="personModal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close">×</button>
+      <h2 id="modalName"></h2>
+      <p id="modalBranch"></p>
+
+      <div class="modal-section">
+        <h3>Life</h3>
+        <p id="modalBirth"></p>
+        <p id="modalDeath"></p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Family</h3>
+        <p id="modalParents"></p>
+        <p id="modalSpouses"></p>
+        <p id="modalChildren"></p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Notes</h3>
+        <p id="modalNotes"></p>
+      </div>
     </div>
-
-    <div id="tree"></div>
-  </main>
+  </div>
 
   <script src="tree.js"></script>
 </body>
